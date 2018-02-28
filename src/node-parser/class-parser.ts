@@ -16,15 +16,16 @@ import { DefaultDeclaration as TshDefault } from '../declarations/DefaultDeclara
 import { MethodDeclaration as TshMethod } from '../declarations/MethodDeclaration';
 import { ParameterDeclaration as TshParameter } from '../declarations/ParameterDeclaration';
 import { PropertyDeclaration as TshProperty } from '../declarations/PropertyDeclaration';
+import { DecoratorDeclaration as TshDecorator } from '../declarations/DecoratorDeclaration';
 import { Resource } from '../resources/Resource';
 import {
     isArrayBindingPattern,
     isConstructorDeclaration,
+    isGetAccessorDeclaration,
     isIdentifier,
     isMethodDeclaration,
     isObjectBindingPattern,
     isPropertyDeclaration,
-    isGetAccessorDeclaration,
     isSetAccessorDeclaration,
 } from '../type-guards/TypescriptGuards';
 import { parseFunctionParts, parseMethodParams } from './function-parser';
@@ -55,6 +56,28 @@ export function parseClassIdentifiers(tsResource: Resource, node: Node): void {
         }
         parseClassIdentifiers(tsResource, child);
     }
+}
+
+/**
+ * Parses decorators
+ *
+ * @export
+ * @param {Node} node
+ */
+export function parseDecorators(node: Node): TshDecorator[] {
+    let decorators: TshDecorator[] = [];
+    if (node.decorators) {
+        decorators = node.decorators.map((param) => {
+            const args = (<any>param.expression).arguments;
+            const parameters: string[] = args.map((arg) => {
+                return arg.text ? arg.text : arg.getText();
+            });
+            const tshDecorator = new TshDecorator((<any>param.expression).expression.getText());
+            tshDecorator.parameters = parameters;
+            return tshDecorator;
+        });
+    }
+    return decorators;
 }
 
 /**
@@ -128,31 +151,33 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
         classDeclaration.typeParameters = node.typeParameters.map(param => param.getText());
     }
 
+    if (node.decorators) {
+        classDeclaration.decorators = parseDecorators(node);
+    }
+
     if (node.members) {
         node.members.forEach((o) => {
             if (isPropertyDeclaration(o)) {
                 const actualCount = classDeclaration.properties.length;
+                const tshProperty = new TshProperty(
+                    (o.name as Identifier).text,
+                    getNodeVisibility(o),
+                    getNodeType(o.type),
+                    o.getStart(),
+                    o.getEnd(),
+                );
                 if (o.modifiers) {
                     classDeclaration.properties.push(
-                        new TshProperty(
-                            (o.name as Identifier).text,
-                            getNodeVisibility(o),
-                            getNodeType(o.type),
-                            o.getStart(),
-                            o.getEnd(),
-                        ),
+                        tshProperty,
                     );
                 }
                 if (actualCount === classDeclaration.properties.length) {
                     classDeclaration.properties.push(
-                        new TshProperty(
-                            (o.name as Identifier).text,
-                            getNodeVisibility(o),
-                            getNodeType(o.type),
-                            o.getStart(),
-                            o.getEnd(),
-                        ),
+                        tshProperty,
                     );
+                }
+                if (o.decorators) {
+                    tshProperty.decorators = parseDecorators(o);
                 }
                 return;
             }
@@ -198,6 +223,7 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
                     o.getEnd(),
                 );
                 method.parameters = parseMethodParams(o);
+                method.decorators = parseDecorators(o);
                 classDeclaration.methods.push(method);
                 parseFunctionParts(tsResource, method, o);
             }

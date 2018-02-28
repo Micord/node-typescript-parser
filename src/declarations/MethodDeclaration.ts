@@ -2,6 +2,7 @@ import { AbstractDeclaration, CallableDeclaration, ScopedDeclaration, TypedDecla
 import { DeclarationVisibility } from './DeclarationVisibility';
 import { ParameterDeclaration } from './ParameterDeclaration';
 import { VariableDeclaration } from './VariableDeclaration';
+import {DecoratorDeclaration} from "./DecoratorDeclaration";
 
 /**
  * Method declaration. A method is contained in an interface or a class.
@@ -14,6 +15,7 @@ import { VariableDeclaration } from './VariableDeclaration';
  * @implements {TypedDeclaration}
  */
 export class MethodDeclaration implements AbstractDeclaration, CallableDeclaration, ScopedDeclaration, TypedDeclaration {
+    public decorators: DecoratorDeclaration[] = [];
     public parameters: ParameterDeclaration[] = [];
     public variables: VariableDeclaration[] = [];
 
