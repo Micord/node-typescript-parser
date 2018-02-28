@@ -1,18 +1,19 @@
 import { Declaration } from '../declarations/Declaration';
 import { Export } from '../exports/Export';
 import { Import } from '../imports/Import';
+import { ClassDeclaration, EnumDeclaration, InterfaceDeclaration } from '../declarations';
 
 /**
  * Base interface for resources. All resources share the same properties.
  * Resources are files, namespaces or modules.
- * 
+ *
  * @export
  * @interface Resource
  */
 export interface Resource {
     /**
      * List of imports contained in this resource.
-     * 
+     *
      * @type {Import[]}
      * @memberof Resource
      */
@@ -20,7 +21,7 @@ export interface Resource {
 
     /**
      * List of exports contained in this resource.
-     * 
+     *
      * @type {Export[]}
      * @memberof Resource
      */
@@ -28,7 +29,7 @@ export interface Resource {
 
     /**
      * List of declarations that are contained in this resource.
-     * 
+     *
      * @type {Declaration[]}
      * @memberof Resource
      */
@@ -36,16 +37,16 @@ export interface Resource {
 
     /**
      * List of subresources (like namespaces in a file) of this resource.
-     * 
+     *
      * @type {Resource[]}
      * @memberof Resource
      */
     resources: Resource[];
-    
+
     /**
      * List of used identifiers in this resource.
      * (i.e. actual used string identifiers to calculate missing imports and stuff.)
-     * 
+     *
      * @type {string[]}
      * @memberof Resource
      */
@@ -54,7 +55,7 @@ export interface Resource {
     /**
      * "Unique" identifier for this resource. Can be the filepath for files or
      * node identifiers for node modules.
-     * 
+     *
      * @type {string}
      * @memberof Resource
      */
@@ -62,10 +63,16 @@ export interface Resource {
 
     /**
      * Returns an array of usages (a usage is a used symbol name in the resource)
-     * that are not covered by its own declarations. 
-     * 
+     * that are not covered by its own declarations.
+     *
      * @type {string[]}
      * @memberof Resource
      */
     readonly nonLocalUsages: string[];
+
+    classes: ClassDeclaration[];
+
+    interfaces: InterfaceDeclaration[];
+
+    enums: EnumDeclaration[];
 }

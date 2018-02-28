@@ -232,5 +232,5 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
 
     parseClassIdentifiers(tsResource, node);
 
-    tsResource.declarations.push(classDeclaration);
+    tsResource.classes.push(classDeclaration);
 }
