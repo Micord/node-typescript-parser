@@ -1,4 +1,4 @@
-import { Identifier, InterfaceDeclaration } from 'typescript';
+import {Identifier, InterfaceDeclaration, SyntaxKind } from 'typescript';
 
 import { DeclarationVisibility } from '../declarations/DeclarationVisibility';
 import { DefaultDeclaration } from '../declarations/DefaultDeclaration';
@@ -27,6 +27,17 @@ export function parseInterface(resource: Resource, node: InterfaceDeclaration): 
     if (isNodeDefaultExported(node)) {
         interfaceDeclaration.isExported = false;
         resource.declarations.push(new DefaultDeclaration(interfaceDeclaration.name, resource));
+    }
+
+    if (node.heritageClauses) {
+        node.heritageClauses.forEach((clause) => {
+
+            if (clause.token === SyntaxKind.ExtendsKeyword) {
+                clause.types.forEach(type => interfaceDeclaration.extendsClauses.push(type.getText()));
+            } else if (clause.token === SyntaxKind.ImplementsKeyword) {
+                clause.types.forEach(type => interfaceDeclaration.implementsClauses.push(type.getText()));
+            }
+        });
     }
 
     if (node.members) {
