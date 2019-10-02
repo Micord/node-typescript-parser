@@ -15,7 +15,7 @@ import { DecoratorDeclaration } from './DecoratorDeclaration';
  * @implements {GenericDeclaration}
  */
 export class ClassDeclaration implements ClassLikeDeclaration, ExportableDeclaration, GenericDeclaration {
-    public ctor: ConstructorDeclaration;
+    public ctor: ConstructorDeclaration | undefined;
     public accessors: AccessorDeclaration[] = [];
     public getters: AccessorDeclaration[] = [];
     public setters: AccessorDeclaration[] = [];

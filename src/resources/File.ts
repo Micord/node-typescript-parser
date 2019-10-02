@@ -12,7 +12,7 @@ import { ClassDeclaration, EnumDeclaration, InterfaceDeclaration } from '../decl
 
 /**
  * TypeScript resource. Basically a file that is located somewhere.
- * 
+ *
  * @export
  * @class File
  * @implements {Resource}
@@ -36,15 +36,16 @@ export class File implements Resource, Node {
         return this.usages
             .filter(usage =>
                 !this.declarations.some(o => o.name === usage) &&
-                !this.resources.some(o => (o instanceof Module || o instanceof Namespace) && o.name === usage))
+                !this.resources.some(o => (o instanceof Module || o instanceof Namespace) && o.name === usage),
+        )
             .concat(
-            this.resources.reduce((all, cur) => all.concat(cur.nonLocalUsages), [] as string[]),
+                this.resources.reduce((all, cur) => all.concat(cur.nonLocalUsages), [] as string[]),
         );
     }
 
     /**
      * Returns the parsed path of a resource.
-     * 
+     *
      * @readonly
      * @type {ParsedPath}
      * @memberof File
@@ -55,7 +56,7 @@ export class File implements Resource, Node {
 
     /**
      * Determines if a file is a workspace file or an external resource.
-     * 
+     *
      * @readonly
      * @type {boolean}
      * @memberof File

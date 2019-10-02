@@ -1,6 +1,5 @@
 import {
     ArrayBindingPattern,
-    BindingElement,
     ClassDeclaration,
     ConstructorDeclaration,
     Identifier,
@@ -31,6 +30,7 @@ import {
 import { parseFunctionParts, parseMethodParams } from './function-parser';
 import { parseIdentifier } from './identifier-parser';
 import {
+    containsModifier,
     getDefaultResourceIdentifier,
     getNodeType,
     getNodeVisibility,
@@ -112,6 +112,8 @@ export function parseCtorParams(
                     (o.name as Identifier).text,
                     getNodeVisibility(o),
                     getNodeType(o.type),
+                    !!o.questionToken,
+                    containsModifier(o, SyntaxKind.StaticKeyword),
                     o.getStart(),
                     o.getEnd(),
                 ),
@@ -119,8 +121,8 @@ export function parseCtorParams(
         } else if (isObjectBindingPattern(o.name) || isArrayBindingPattern(o.name)) {
             const identifiers = o.name as ObjectBindingPattern | ArrayBindingPattern;
             const elements = [...identifiers.elements];
-
-            ctor.parameters = ctor.parameters.concat(<TshParameter[]>elements.map((bind: BindingElement) => {
+            // TODO: BindingElement
+            ctor.parameters = ctor.parameters.concat(<TshParameter[]>elements.map((bind: any) => {
                 if (isIdentifier(bind.name)) {
                     return new TshParameter(
                         (bind.name as Identifier).text, undefined, bind.getStart(), bind.getEnd(),
@@ -174,6 +176,8 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
                     (o.name as Identifier).text,
                     getNodeVisibility(o),
                     getNodeType(o.type),
+                            !!o.questionToken,
+                            containsModifier(o, SyntaxKind.StaticKeyword),
                     o.getStart(),
                     o.getEnd(),
                 );
@@ -185,6 +189,8 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
                 if (actualCount === classDeclaration.properties.length) {
                     classDeclaration.properties.push(
                         tshProperty,
+                            !!o.questionToken,
+                            containsModifier(o, SyntaxKind.StaticKeyword),
                     );
                 }
                 if (o.decorators) {
@@ -200,6 +206,7 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
                         getNodeVisibility(o),
                         getNodeType(o.type),
                         o.modifiers !== undefined && o.modifiers.some(m => m.kind === SyntaxKind.AbstractKeyword),
+                        containsModifier(o, SyntaxKind.StaticKeyword),
                         o.getStart(),
                         o.getEnd(),
                     ),
@@ -213,6 +220,7 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
                         getNodeVisibility(o),
                         getNodeType(o.type),
                         o.modifiers !== undefined && o.modifiers.some(m => m.kind === SyntaxKind.AbstractKeyword),
+                        containsModifier(o, SyntaxKind.StaticKeyword),
                         o.getStart(),
                         o.getEnd(),
                     ),
@@ -230,6 +238,9 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
                     o.modifiers !== undefined && o.modifiers.some(m => m.kind === SyntaxKind.AbstractKeyword),
                     getNodeVisibility(o),
                     getNodeType(o.type),
+                    !!o.questionToken,
+                    containsModifier(o, SyntaxKind.StaticKeyword),
+                    containsModifier(o, SyntaxKind.AsyncKeyword),
                     o.getStart(),
                     o.getEnd(),
                 );
