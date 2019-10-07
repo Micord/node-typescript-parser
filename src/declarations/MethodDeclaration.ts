@@ -30,7 +30,7 @@ export class MethodDeclaration implements
     ScopedDeclaration,
     StaticDeclaration,
     TypedDeclaration {
-    
+
     public decorators: DecoratorDeclaration[] = [];
     public parameters: ParameterDeclaration[] = [];
     public variables: VariableDeclaration[] = [];

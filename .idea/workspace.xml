@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BuildServerSettings">
+    <option name="LOGIN" value="" />
+    <option name="SERVER_URL" value="http://buildserver" />
+    <option name="REMEMBER_ME" value="true" />
+    <option name="USE_IDEA_PROXY_SETTINGS" value="true" />
+    <option name="INSPECTIONS_BUILD_TYPE_IDS" />
+    <option name="DUPLICATES_BUILD_TYPE_IDS" />
+    <option name="COVERAGE_SETTINGS" />
+    <option name="TEST_STATUS_ENABLED" value="true" />
+    <option name="TEST_STATUS_SHOW_SUCCESSFUL" value="false" />
+    <option name="POSTPONE_SUITABLE_CONFIGURATIONS_SEARCH" value="false" />
+    <option name="ARTIFACTS_BUILD_TYPE_IDS" />
+    <option name="PERFORM_COMMIT_IF_SUCCESSFUL" value="true" />
+    <option name="PERFORM_COMMIT_IF_NO_NEW_FAILED_TESTS" value="false" />
+    <option name="REQUEST_CONFIRMATON" value="false" />
+    <option name="PRE_TESTED_COMMIT" value="true" />
+    <option name="FILTER_BY_STATUS" value="false" />
+    <option name="FILTER_MARKED_AS_FIXED" value="false" />
+    <option name="SHOW_CLOSE_PROMPT" value="true" />
+    <option name="TOOL_WINDOW_SELECTED_CONTENT_INDEX" value="0" />
+    <option name="FILTER_BY_CURRENT_PROJECT" value="true" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c93ba5af-6b4b-4067-ba45-949c3324337a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/DeclarationIndex.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/DeclarationIndex.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeclarationIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/DeclarationIndex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SymbolSpecifier.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/SymbolSpecifier.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TypescriptParser.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/TypescriptParser.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TypescriptParser.js" beforeDir="false" afterPath="$PROJECT_DIR$/TypescriptParser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-generators/TypescriptGenerationOptions.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code-generators/TypescriptGenerationOptions.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-generators/TypescriptGenerationOptions.js" beforeDir="false" afterPath="$PROJECT_DIR$/code-generators/TypescriptGenerationOptions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-generators/typescript-generators/accessorDeclaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code-generators/typescript-generators/accessorDeclaration.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-generators/typescript-generators/externalModuleImport.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code-generators/typescript-generators/externalModuleImport.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-generators/typescript-generators/methodDeclaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code-generators/typescript-generators/methodDeclaration.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-generators/typescript-generators/namedImport.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code-generators/typescript-generators/namedImport.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-generators/typescript-generators/namedImport.js" beforeDir="false" afterPath="$PROJECT_DIR$/code-generators/typescript-generators/namedImport.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-generators/typescript-generators/namespaceImport.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code-generators/typescript-generators/namespaceImport.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-generators/typescript-generators/propertyDeclaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code-generators/typescript-generators/propertyDeclaration.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-generators/typescript-generators/propertyDeclaration.js" beforeDir="false" afterPath="$PROJECT_DIR$/code-generators/typescript-generators/propertyDeclaration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-generators/typescript-generators/stringImport.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code-generators/typescript-generators/stringImport.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/AccessorDeclaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/AccessorDeclaration.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/AccessorDeclaration.js" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/AccessorDeclaration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/ClassDeclaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/ClassDeclaration.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/ConstructorDeclaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/ConstructorDeclaration.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/Declaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/Declaration.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/DeclarationVisibility.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/DeclarationVisibility.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/DefaultDeclaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/DefaultDeclaration.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/EnumDeclaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/EnumDeclaration.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/FunctionDeclaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/FunctionDeclaration.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/FunctionDeclaration.js" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/FunctionDeclaration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/InterfaceDeclaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/InterfaceDeclaration.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/InterfaceDeclaration.js" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/InterfaceDeclaration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/MethodDeclaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/MethodDeclaration.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/MethodDeclaration.js" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/MethodDeclaration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/ModuleDeclaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/ModuleDeclaration.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/ParameterDeclaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/ParameterDeclaration.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/ParameterDeclaration.js" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/ParameterDeclaration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/PropertyDeclaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/PropertyDeclaration.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/PropertyDeclaration.js" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/PropertyDeclaration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/TypeAliasDeclaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/TypeAliasDeclaration.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/declarations/VariableDeclaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/declarations/VariableDeclaration.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exports/NamedExport.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/exports/NamedExport.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/ExternalModuleImport.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ExternalModuleImport.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/NamedImport.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/imports/NamedImport.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/NamespaceImport.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/imports/NamespaceImport.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/StringImport.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/imports/StringImport.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node-parser/class-parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node-parser/class-parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node-parser/export-parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node-parser/export-parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node-parser/function-parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node-parser/function-parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node-parser/identifier-parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node-parser/identifier-parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node-parser/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node-parser/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node-parser/interface-parser.js" beforeDir="false" afterPath="$PROJECT_DIR$/node-parser/interface-parser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node-parser/parse-utilities.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/node-parser/parse-utilities.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node-parser/parse-utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/node-parser/parse-utilities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/File.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/resources/File.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/Module.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Module.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/Namespace.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/Namespace.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/declarations/MethodDeclaration.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/declarations/MethodDeclaration.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/node-parser/class-parser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/node-parser/class-parser.ts" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/tsconfig.build.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+        <option value="$PROJECT_DIR$/.idea/node-typescript-parser-mikord.iml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+        <option value="$PROJECT_DIR$/.idea/hotswap_agent.xml" />
+        <option value="$PROJECT_DIR$/.idea/codeStyles/Project.xml" />
+        <option value="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1" />
+    <option name="y" value="1" />
+    <option name="width" value="1598" />
+    <option name="height" value="858" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="node-typescript-parser-mikord" type="b2602c69:ProjectViewProjectNode" />
+              <item name="node-typescript-parser-mikord" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../node-typescript-parser" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\work2\node-typescript-parser-mikord\node_modules\typescript\lib" />
+    <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/../node-typescript-parser" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c93ba5af-6b4b-4067-ba45-949c3324337a" name="Default Changelist" comment="" />
+      <created>1570430843975</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1570430843975</updated>
+      <workItem from="1570430845448" duration="1335000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1335000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info id="Designer" />
+      <window_info id="Image Layers" />
+      <window_info id="Capture Tool" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="TypeScript" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" visible="true" />
+      <window_info anchor="bottom" id="TeamCity" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/fix_ts_parser.patch">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/tsconfig.build.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.6</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { ParsedPath } from 'path';
 import { Declaration } from '../declarations/Declaration';
 import { Export } from '../exports/Export';
