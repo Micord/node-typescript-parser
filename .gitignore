@@ -9,4 +9,5 @@ coverage/
 
 # typescript
 build/
-.idea/
+.idea*/
+*.iml
