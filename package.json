@@ -1,6 +1,6 @@
 {
   "name": "typescript-parser",
-  "version": "2.6.1-cg-fork",
+  "version": "2.6.1-cg.1",
   "description": "Parser for typescript (and javascript) files, that compiles those files and generates a human understandable AST.",
   "main": "index.js",
   "typings": "index.d.ts",
