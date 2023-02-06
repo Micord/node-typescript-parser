@@ -101,7 +101,7 @@ export function parseCtorParams(
         if (isIdentifier(o.name)) {
             ctor.parameters.push(
                 new TshParameter(
-                    (o.name as Identifier).text, getNodeType(o.type), o.getStart(), o.getEnd(),
+                    (o.name as Identifier).text, getNodeType(o.type), o.getStart(), o.getEnd(), parseDecorators(o),
                 ),
             );
             if (!o.modifiers) {
@@ -125,7 +125,7 @@ export function parseCtorParams(
             ctor.parameters = ctor.parameters.concat(<TshParameter[]>elements.map((bind: any) => {
                 if (isIdentifier(bind.name)) {
                     return new TshParameter(
-                        (bind.name as Identifier).text, undefined, bind.getStart(), bind.getEnd(),
+                        (bind.name as Identifier).text, undefined, bind.getStart(), bind.getEnd(), parseDecorators(bind),
                     );
                 }
             }).filter(Boolean));

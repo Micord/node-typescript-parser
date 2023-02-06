@@ -1,6 +1,6 @@
 {
   "name": "typescript-parser",
-  "version": "2.6.1-cg.1",
+  "version": "2.6.1-cg.2",
   "description": "Parser for typescript (and javascript) files, that compiles those files and generates a human understandable AST.",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -49,6 +49,6 @@
     "lodash": "^4.17.10",
     "lodash-es": "^4.17.10",
     "tslib": "^1.9.3",
-    "typescript": "3.5.3"
+    "typescript": "3.9.4"
   }
 }
