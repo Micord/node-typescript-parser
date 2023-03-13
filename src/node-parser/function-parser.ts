@@ -29,6 +29,7 @@ import {
     isObjectBindingPattern,
     isPropertySignature,
 } from '../type-guards/TypescriptGuards';
+import { parseDecorators } from './class-parser';
 import { parseIdentifier } from './identifier-parser';
 import {
     containsModifier,
@@ -83,7 +84,7 @@ export function parseMethodParams(
             const params = all;
             if (isIdentifier(cur.name)) {
                 params.push(new TshParameter(
-                    (cur.name as Identifier).text, getNodeType(cur.type), cur.getStart(), cur.getEnd(),
+                    (cur.name as Identifier).text, getNodeType(cur.type), cur.getStart(), cur.getEnd(), parseDecorators(cur),
                 ));
             } else if (isObjectBindingPattern(cur.name)) {
                 const elements = cur.name.elements;
@@ -103,6 +104,7 @@ export function parseMethodParams(
                     types[index],
                     bindingElement.getStart(),
                     bindingElement.getEnd(),
+                    parseDecorators(bindingElement),
                 ));
 
                 params.push(boundParam);
@@ -122,6 +124,7 @@ export function parseMethodParams(
                     types[index],
                     bindingElement.getStart(),
                     bindingElement.getEnd(),
+                    parseDecorators(bindingElement),
                 ));
 
                 params.push(boundParam);

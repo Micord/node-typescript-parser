@@ -1,4 +1,5 @@
 import { TypedDeclaration } from './Declaration';
+import { DecoratorDeclaration as TshDecorator } from './DecoratorDeclaration';
 
 /**
  * Parameter declaration. Is contained in a method or function delaration since a parameter can not be exported
@@ -9,7 +10,12 @@ import { TypedDeclaration } from './Declaration';
  * @implements {TypedDeclaration}
  */
 export class ParameterDeclaration implements TypedDeclaration {
-    constructor(public name: string, public type: string | undefined, public start?: number, public end?: number) { }
+    constructor(public name: string, public type: string | undefined, public start?: number, public end?: number,
+                public decorators?: TshDecorator[]) {
+        if (decorators && decorators.length === 0) {
+            this.decorators = undefined;
+        }
+    }
 }
 
 export class BoundParameterDeclaration extends ParameterDeclaration {
