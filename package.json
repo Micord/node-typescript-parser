@@ -18,6 +18,9 @@
     "type": "git",
     "url": "https://github.com/TypeScript-Heroes/node-typescript-parser.git"
   },
+  "publishConfig": {
+    "registry": "https://repo.micord.ru/repository/npm-private/"
+  },
   "keywords": [
     "typescript",
     "parser",
