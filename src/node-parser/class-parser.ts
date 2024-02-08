@@ -7,6 +7,7 @@ import {
     ObjectBindingPattern,
     SyntaxKind,
 } from 'typescript';
+import ts = require('typescript');
 
 import { GetterDeclaration, SetterDeclaration } from '../declarations/AccessorDeclaration';
 import { ClassDeclaration as TshClass } from '../declarations/ClassDeclaration';
@@ -66,8 +67,9 @@ export function parseClassIdentifiers(tsResource: Resource, node: Node): void {
  */
 export function parseDecorators(node: Node): TshDecorator[] {
     let decorators: TshDecorator[] = [];
-    if (node.decorators) {
-        decorators = node.decorators.map((param) => {
+    const nodeDecorators = ts.canHaveDecorators(node) ? ts.getDecorators(node) : undefined;
+    if (nodeDecorators) {
+        decorators = nodeDecorators.map((param) => {
             const args = (<any>param.expression).arguments;
             const parameters: string[] = args.map((arg: any) => {
                 return arg.text ? arg.text : arg.getText();
@@ -164,7 +166,7 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
         classDeclaration.typeParameters = node.typeParameters.map(param => param.getText());
     }
 
-    if (node.decorators) {
+    if (ts.canHaveDecorators(node)) {
         classDeclaration.decorators = parseDecorators(node);
     }
 
@@ -191,7 +193,7 @@ export function parseClass(tsResource: Resource, node: ClassDeclaration): void {
                         tshProperty,
                     );
                 }
-                if (o.decorators) {
+                if (ts.canHaveDecorators(o)) {
                     tshProperty.decorators = parseDecorators(o);
                 }
                 return;

@@ -22,6 +22,7 @@ export class BoundParameterDeclaration extends ParameterDeclaration {
     public parameters: ParameterDeclaration[] = [];
     public typeReference: string | undefined;
 
+    // @ts-ignore
     public get name(): string {
         return this.parameters.length ?
             `${this.startCharacter} ${this.parameters.map(p => p.name).join(', ')} ${this.endCharacter}` :
@@ -30,6 +31,7 @@ export class BoundParameterDeclaration extends ParameterDeclaration {
 
     public set name(_: string) { }
 
+    // @ts-ignore
     public get type(): string {
         return this.typeReference ||
             this.parameters.length ?
