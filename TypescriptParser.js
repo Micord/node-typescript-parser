@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TypescriptParser = void 0;
 const tslib_1 = require("tslib");
 const fs_1 = require("fs");
 const path_1 = require("path");
@@ -36,9 +37,9 @@ class TypescriptParser {
      *
      * @memberof TsResourceParser
      */
-    parseSource(source, scriptKind = typescript_1.ScriptKind.TS) {
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
-            return yield this.parseTypescript(typescript_1.createSourceFile('inline.tsx', source, typescript_1.ScriptTarget.ES2015, true, scriptKind), '/');
+    parseSource(source_1) {
+        return tslib_1.__awaiter(this, arguments, void 0, function* (source, scriptKind = typescript_1.ScriptKind.TS) {
+            return yield this.parseTypescript((0, typescript_1.createSourceFile)('inline.tsx', source, typescript_1.ScriptTarget.ES2015, true, scriptKind), '/');
         });
     }
     /**
@@ -70,7 +71,7 @@ class TypescriptParser {
             return filePathes
                 .map((o) => {
                 let scriptKind = typescript_1.ScriptKind.Unknown;
-                const parsed = path_1.parse(o);
+                const parsed = (0, path_1.parse)(o);
                 switch (parsed.ext.toLowerCase()) {
                     case 'js':
                         scriptKind = typescript_1.ScriptKind.JS;
@@ -85,7 +86,7 @@ class TypescriptParser {
                         scriptKind = typescript_1.ScriptKind.TSX;
                         break;
                 }
-                return typescript_1.createSourceFile(o, fs_1.readFileSync(o).toString(), typescript_1.ScriptTarget.ES2015, true, scriptKind);
+                return (0, typescript_1.createSourceFile)(o, (0, fs_1.readFileSync)(o).toString(), typescript_1.ScriptTarget.ES2015, true, scriptKind);
             })
                 .map(o => this.parseTypescript(o, rootPath));
         });
@@ -122,41 +123,41 @@ class TypescriptParser {
         const modules = [{ moduleRoot: root, moduleResource: resource }];
         for (let iter = modules.shift(); iter !== undefined; iter = modules.shift()) {
             const { moduleRoot, moduleResource } = iter;
-            traverse_ast_1.traverseAst(moduleRoot, (node) => {
+            (0, traverse_ast_1.traverseAst)(moduleRoot, (node) => {
                 switch (node.kind) {
                     case typescript_1.SyntaxKind.ImportDeclaration:
                     case typescript_1.SyntaxKind.ImportEqualsDeclaration:
-                        import_parser_1.parseImport(moduleResource, node);
+                        (0, import_parser_1.parseImport)(moduleResource, node);
                         break;
                     case typescript_1.SyntaxKind.ExportDeclaration:
                     case typescript_1.SyntaxKind.ExportAssignment:
-                        export_parser_1.parseExport(moduleResource, node);
+                        (0, export_parser_1.parseExport)(moduleResource, node);
                         break;
                     case typescript_1.SyntaxKind.EnumDeclaration:
-                        enum_parser_1.parseEnum(moduleResource, node);
+                        (0, enum_parser_1.parseEnum)(moduleResource, node);
                         break;
                     case typescript_1.SyntaxKind.TypeAliasDeclaration:
-                        type_alias_parser_1.parseTypeAlias(moduleResource, node);
+                        (0, type_alias_parser_1.parseTypeAlias)(moduleResource, node);
                         break;
                     case typescript_1.SyntaxKind.FunctionDeclaration:
-                        function_parser_1.parseFunction(moduleResource, node);
+                        (0, function_parser_1.parseFunction)(moduleResource, node);
                         break;
                     case typescript_1.SyntaxKind.VariableStatement:
-                        variable_parser_1.parseVariable(moduleResource, node);
+                        (0, variable_parser_1.parseVariable)(moduleResource, node);
                         break;
                     case typescript_1.SyntaxKind.InterfaceDeclaration:
-                        interface_parser_1.parseInterface(moduleResource, node);
+                        (0, interface_parser_1.parseInterface)(moduleResource, node);
                         break;
                     case typescript_1.SyntaxKind.ClassDeclaration:
-                        class_parser_1.parseClass(moduleResource, node);
+                        (0, class_parser_1.parseClass)(moduleResource, node);
                         break;
                     case typescript_1.SyntaxKind.Identifier:
-                        identifier_parser_1.parseIdentifier(moduleResource, node);
+                        (0, identifier_parser_1.parseIdentifier)(moduleResource, node);
                         break;
                     case typescript_1.SyntaxKind.ModuleDeclaration:
                         modules.push({
                             moduleRoot: node,
-                            moduleResource: module_parser_1.parseModule(moduleResource, node),
+                            moduleResource: (0, module_parser_1.parseModule)(moduleResource, node),
                         });
                         break;
                     default:

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.VariableDeclaration = void 0;
 /**
  * Variable declaration. Is contained in a method or function, or can be exported.
  *

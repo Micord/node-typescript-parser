@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.stringTemplate = stringTemplate;
 /**
  * Creates a template from an expression string. The template can then be used to infuse stuff into the template.
  *
@@ -17,4 +18,3 @@ function stringTemplate(strings, ...keys) {
         return result.join('');
     };
 }
-exports.stringTemplate = stringTemplate;

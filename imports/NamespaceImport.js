@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.NamespaceImport = void 0;
 /**
  * Import that imports a whole namespace (i.e. import * as foobar from 'foobar';).
  *
@@ -8,14 +9,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @implements {AliasedImport}
  */
 class NamespaceImport {
+    get isNew() {
+        return this.start === undefined || this.end === undefined;
+    }
     constructor(libraryName, alias, start, end) {
         this.libraryName = libraryName;
         this.alias = alias;
         this.start = start;
         this.end = end;
-    }
-    get isNew() {
-        return this.start === undefined || this.end === undefined;
     }
     /**
      * Clone the current import object.

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ClassDeclaration = void 0;
 /**
  * Class declaration that contains methods, properties and a constructor
  *

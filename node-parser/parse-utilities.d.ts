@@ -35,7 +35,7 @@ export declare function getNodeType(node: TypeNode | undefined): string | undefi
  * @param {SyntaxKind} modifierKind
  * @returns {boolean}
  */
-export declare function containsModifier(node: Node, modifierKind: SyntaxKind): boolean;
+export declare function containsModifier(node: any, modifierKind: SyntaxKind): boolean;
 /**
  * Returns the enum value (visibility) of a node.
  *
@@ -43,7 +43,7 @@ export declare function containsModifier(node: Node, modifierKind: SyntaxKind): 
  * @param {Node} node
  * @returns {(DeclarationVisibility | undefined)}
  */
-export declare function getNodeVisibility(node: Node): DeclarationVisibility | undefined;
+export declare function getNodeVisibility(node: any): DeclarationVisibility | undefined;
 /**
  * Function that calculates the default name of a resource.
  * This is used when a default export has no name (i.e. export class {}).

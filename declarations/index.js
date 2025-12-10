@@ -4,6 +4,7 @@ const tslib_1 = require("tslib");
 tslib_1.__exportStar(require("./AccessorDeclaration"), exports);
 tslib_1.__exportStar(require("./ClassDeclaration"), exports);
 tslib_1.__exportStar(require("./ConstructorDeclaration"), exports);
+tslib_1.__exportStar(require("./Declaration"), exports);
 tslib_1.__exportStar(require("./DeclarationInfo"), exports);
 tslib_1.__exportStar(require("./DeclarationVisibility"), exports);
 tslib_1.__exportStar(require("./DefaultDeclaration"), exports);

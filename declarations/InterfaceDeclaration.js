@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.InterfaceDeclaration = void 0;
 /**
  * Interface declaration that contains defined properties and methods.
  *

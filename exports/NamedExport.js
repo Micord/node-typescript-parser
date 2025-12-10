@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.NamedExport = void 0;
 /**
  * Declares a named export (i.e. export { Foobar } from ...).
  *

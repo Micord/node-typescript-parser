@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Module = void 0;
 const Namespace_1 = require("./Namespace");
 /**
  * TypeScript resource. Declaration of a typescript module (i.e. declare module "foobar").
@@ -10,6 +11,15 @@ const Namespace_1 = require("./Namespace");
  * @implements {Node}
  */
 class Module {
+    get identifier() {
+        return this.name;
+    }
+    get nonLocalUsages() {
+        return this.usages
+            .filter(usage => !this.declarations.some(o => o.name === usage) &&
+            !this.resources.some(o => (o instanceof Module || o instanceof Namespace_1.Namespace) && o.name === usage))
+            .concat(this.resources.reduce((all, cur) => all.concat(cur.nonLocalUsages), []));
+    }
     constructor(name, start, end) {
         this.name = name;
         this.start = start;
@@ -22,15 +32,6 @@ class Module {
         this.enums = [];
         this.resources = [];
         this.usages = [];
-    }
-    get identifier() {
-        return this.name;
-    }
-    get nonLocalUsages() {
-        return this.usages
-            .filter(usage => !this.declarations.some(o => o.name === usage) &&
-            !this.resources.some(o => (o instanceof Module || o instanceof Namespace_1.Namespace) && o.name === usage))
-            .concat(this.resources.reduce((all, cur) => all.concat(cur.nonLocalUsages), []));
     }
     /**
      * Function that calculates the alias name of a namespace.

@@ -5,7 +5,7 @@ import { TypescriptParser } from './TypescriptParser';
  * Returns a list of deleted declarations, newly added declarations (with the corresponding infos) and
  * which declarations have been updated (with all declarations under that name).
  */
-export declare type IndexDelta = {
+export type IndexDelta = {
     added: {
         [declaration: string]: DeclarationInfo[];
     };
@@ -60,7 +60,7 @@ export declare class DeclarationIndex {
      * @type {boolean}
      * @memberof DeclarationIndex
      */
-    readonly indexReady: boolean;
+    get indexReady(): boolean;
     /**
      * Reverse index of the declarations.
      *
@@ -68,7 +68,7 @@ export declare class DeclarationIndex {
      * @type {({ [declaration: string]: DeclarationInfo[] } | undefined)}
      * @memberof DeclarationIndex
      */
-    readonly index: {
+    get index(): {
         [declaration: string]: DeclarationInfo[];
     } | undefined;
     /**
@@ -79,7 +79,7 @@ export declare class DeclarationIndex {
      * @type {DeclarationInfo[]}
      * @memberof DeclarationIndex
      */
-    readonly declarationInfos: DeclarationInfo[];
+    get declarationInfos(): DeclarationInfo[];
     constructor(parser: TypescriptParser, rootPath: string);
     /**
      * Calculates the differences between two indices. Calculates removed, added and updated declarations.

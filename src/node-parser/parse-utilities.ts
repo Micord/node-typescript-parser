@@ -1,4 +1,4 @@
-import { Declaration, getCombinedModifierFlags, ModifierFlags, Node, SyntaxKind, TypeNode } from 'typescript';
+import {Declaration, getCombinedModifierFlags, ModifierFlags, Node, SyntaxKind, TypeNode} from 'typescript';
 
 import { DeclarationVisibility } from '../declarations/DeclarationVisibility';
 import { File } from '../resources/File';
@@ -49,9 +49,9 @@ export function getNodeType(node: TypeNode | undefined): string | undefined {
  * @param {SyntaxKind} modifierKind
  * @returns {boolean}
  */
-export function containsModifier(node: Node, modifierKind: SyntaxKind): boolean {
+export function containsModifier(node: any, modifierKind: SyntaxKind): boolean {
     if (!node.modifiers) return false;
-    return node.modifiers.some(mod => mod.kind === modifierKind);
+    return node.modifiers.some((mod:any) => mod.kind === modifierKind);
 }
 
 /**
@@ -61,7 +61,7 @@ export function containsModifier(node: Node, modifierKind: SyntaxKind): boolean 
  * @param {Node} node
  * @returns {(DeclarationVisibility | undefined)}
  */
-export function getNodeVisibility(node: Node): DeclarationVisibility | undefined {
+export function getNodeVisibility(node: any): DeclarationVisibility | undefined {
     if (!node.modifiers) {
         return undefined;
     }

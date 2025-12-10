@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ModuleDeclaration = void 0;
 /**
  * Module (namespace) declaration. Does export a whole module or namespace that is mainly used by
  * external declaration files.

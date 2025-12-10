@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DecoratorDeclaration = void 0;
 /**
  * @export
  * @class DecoratorDeclaration

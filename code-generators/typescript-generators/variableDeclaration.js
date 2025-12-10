@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.generateVariableDelcaration = generateVariableDelcaration;
 /**
  * Generates typescript code for a variable.
  *
@@ -10,4 +11,3 @@ Object.defineProperty(exports, "__esModule", { value: true });
 function generateVariableDelcaration(variable) {
     return `${variable.name}${variable.type ? `: ${variable.type}` : ''}`;
 }
-exports.generateVariableDelcaration = generateVariableDelcaration;

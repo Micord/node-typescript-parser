@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TypescriptCodeGenerator = exports.GENERATORS = void 0;
 const AccessorDeclaration_1 = require("../declarations/AccessorDeclaration");
 const MethodDeclaration_1 = require("../declarations/MethodDeclaration");
 const ParameterDeclaration_1 = require("../declarations/ParameterDeclaration");

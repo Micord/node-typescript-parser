@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SetterDeclaration = exports.GetterDeclaration = exports.AccessorDeclaration = void 0;
 /**
  * Property accessor declaration. This element represents the base and will be used in setters and getters.
  *

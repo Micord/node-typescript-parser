@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DefaultDeclaration = void 0;
 /**
  * Default declaration. Is used when a file exports something as its default.
  * Primary use is to ask the user about a name for the default export.
@@ -10,18 +11,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @implements {ExportableDeclaration}
  */
 class DefaultDeclaration {
+    get exportedDeclaration() {
+        if (!this.exported) {
+            this.exported = this.resource.declarations.find(o => o.name === this.name);
+        }
+        return this.exported;
+    }
     constructor(name, resource, start, end) {
         this.name = name;
         this.resource = resource;
         this.start = start;
         this.end = end;
         this.isExported = true;
-    }
-    get exportedDeclaration() {
-        if (!this.exported) {
-            this.exported = this.resource.declarations.find(o => o.name === this.name);
-        }
-        return this.exported;
     }
 }
 exports.DefaultDeclaration = DefaultDeclaration;

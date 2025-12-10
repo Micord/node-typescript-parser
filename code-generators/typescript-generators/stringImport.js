@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.generateStringImport = generateStringImport;
 /**
  * Generates typescript code for a string import.
  *
@@ -11,4 +12,3 @@ Object.defineProperty(exports, "__esModule", { value: true });
 function generateStringImport(imp, { stringQuoteStyle, eol }) {
     return `import ${stringQuoteStyle}${imp.libraryName}${stringQuoteStyle}${eol}`;
 }
-exports.generateStringImport = generateStringImport;

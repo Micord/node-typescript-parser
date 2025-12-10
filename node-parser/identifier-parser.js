@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.parseIdentifier = parseIdentifier;
 const typescript_1 = require("typescript");
 const usageNotAllowedParents = [
     typescript_1.SyntaxKind.ImportEqualsDeclaration,
@@ -77,4 +78,3 @@ function parseIdentifier(resource, node) {
         }
     }
 }
-exports.parseIdentifier = parseIdentifier;

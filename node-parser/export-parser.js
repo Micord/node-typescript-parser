@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.parseExport = parseExport;
 const DefaultDeclaration_1 = require("../declarations/DefaultDeclaration");
 const AllExport_1 = require("../exports/AllExport");
 const AssignedExport_1 = require("../exports/AssignedExport");
@@ -15,17 +16,17 @@ const parse_utilities_1 = require("./parse-utilities");
  * @param {(ExportDeclaration | ExportAssignment)} node
  */
 function parseExport(resource, node) {
-    if (TypescriptGuards_1.isExportDeclaration(node)) {
+    if ((0, TypescriptGuards_1.isExportDeclaration)(node)) {
         const tsExport = node;
-        if (!TypescriptGuards_1.isStringLiteral(tsExport.moduleSpecifier) && !tsExport.exportClause) {
+        if (!(0, TypescriptGuards_1.isStringLiteral)(tsExport.moduleSpecifier) && !tsExport.exportClause) {
             return;
         }
         if (tsExport.getText().indexOf('*') > -1) {
             resource.exports.push(new AllExport_1.AllExport(node.getStart(), node.getEnd(), tsExport.moduleSpecifier.text));
         }
-        else if (tsExport.exportClause && TypescriptGuards_1.isNamedExports(tsExport.exportClause)) {
+        else if (tsExport.exportClause && (0, TypescriptGuards_1.isNamedExports)(tsExport.exportClause)) {
             const lib = tsExport.moduleSpecifier;
-            const ex = new NamedExport_1.NamedExport(node.getStart(), node.getEnd(), lib ? lib.text : parse_utilities_1.getDefaultResourceIdentifier(resource));
+            const ex = new NamedExport_1.NamedExport(node.getStart(), node.getEnd(), lib ? lib.text : (0, parse_utilities_1.getDefaultResourceIdentifier)(resource));
             ex.specifiers = tsExport.exportClause.elements.map(o => o.propertyName && o.name ?
                 new SymbolSpecifier_1.SymbolSpecifier(o.propertyName.text, o.name.text) :
                 new SymbolSpecifier_1.SymbolSpecifier(o.name.text));
@@ -46,7 +47,7 @@ function parseExport(resource, node) {
             }
         }
         else {
-            const name = (literal && literal.text) ? literal.text : parse_utilities_1.getDefaultResourceIdentifier(resource);
+            const name = (literal && literal.text) ? literal.text : (0, parse_utilities_1.getDefaultResourceIdentifier)(resource);
             if (resource.usages.indexOf(name) === -1) {
                 resource.usages.push(name);
             }
@@ -54,4 +55,3 @@ function parseExport(resource, node) {
         }
     }
 }
-exports.parseExport = parseExport;

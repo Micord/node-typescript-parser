@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.parseModule = parseModule;
 const typescript_1 = require("typescript");
 const Module_1 = require("../resources/Module");
 const Namespace_1 = require("../resources/Namespace");
@@ -19,4 +20,3 @@ function parseModule(resource, node) {
     resource.resources.push(newResource);
     return newResource;
 }
-exports.parseModule = parseModule;

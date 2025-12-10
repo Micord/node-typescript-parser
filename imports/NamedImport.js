@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.NamedImport = void 0;
 /**
  * Basic typescript import (ES6 style). Does contain multiple symbols of a file and converts
  * itself to a multiline import if the threshold is reached.
@@ -11,14 +12,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @implements {Import}
  */
 class NamedImport {
+    get isNew() {
+        return this.start === undefined || this.end === undefined;
+    }
     constructor(libraryName, start, end) {
         this.libraryName = libraryName;
         this.start = start;
         this.end = end;
         this.specifiers = [];
-    }
-    get isNew() {
-        return this.start === undefined || this.end === undefined;
     }
     /**
      * Clone the current import object.

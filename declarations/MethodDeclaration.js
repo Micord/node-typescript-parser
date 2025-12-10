@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.MethodDeclaration = void 0;
 /**
  * Method declaration. A method is contained in an interface or a class.
  * Contains information abount the method itself.

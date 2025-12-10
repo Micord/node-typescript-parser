@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.PropertyDeclaration = void 0;
 /**
  * Property declaration that contains its visibility.
  *

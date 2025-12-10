@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.EnumDeclaration = void 0;
 /**
  * Enum declaration.
  *

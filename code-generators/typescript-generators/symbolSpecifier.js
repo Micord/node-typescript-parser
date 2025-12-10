@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.generateSymbolSpecifier = generateSymbolSpecifier;
 /**
  * Generates typescript code for a symbol specifier.
  *
@@ -10,4 +11,3 @@ Object.defineProperty(exports, "__esModule", { value: true });
 function generateSymbolSpecifier(specifier) {
     return `${specifier.specifier}${specifier.alias ? ` as ${specifier.alias}` : ''}`;
 }
-exports.generateSymbolSpecifier = generateSymbolSpecifier;

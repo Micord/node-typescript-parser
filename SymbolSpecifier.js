@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SymbolSpecifier = void 0;
 /**
  * Class for symbols that are contained in a named import or export or anywhere. Basically an aliased object.
  * (i.e. import {SYMBOL} from '...').

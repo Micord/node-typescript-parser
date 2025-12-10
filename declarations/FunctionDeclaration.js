@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.FunctionDeclaration = void 0;
 /**
  * Function declaration. Like the MethodDeclaration it contains the base info about the function
  * and additional stuff.

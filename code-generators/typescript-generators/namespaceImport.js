@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.generateNamespaceImport = generateNamespaceImport;
 /**
  * Generates typescript code for a namespace import
  *
@@ -11,4 +12,3 @@ Object.defineProperty(exports, "__esModule", { value: true });
 function generateNamespaceImport(imp, { stringQuoteStyle, eol }) {
     return `import * as ${imp.alias} from ${stringQuoteStyle}${imp.libraryName}${stringQuoteStyle}${eol}`;
 }
-exports.generateNamespaceImport = generateNamespaceImport;

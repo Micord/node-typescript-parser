@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.generateExternalModuleImport = generateExternalModuleImport;
 /**
  * Generates typescript code for an external module import.
  *
@@ -11,4 +12,3 @@ Object.defineProperty(exports, "__esModule", { value: true });
 function generateExternalModuleImport(imp, { stringQuoteStyle, eol }) {
     return `import ${imp.alias} = require(${stringQuoteStyle}${imp.libraryName}${stringQuoteStyle})${eol}`;
 }
-exports.generateExternalModuleImport = generateExternalModuleImport;

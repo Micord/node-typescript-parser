@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.isCallableDeclaration = isCallableDeclaration;
+exports.isExportableDeclaration = isExportableDeclaration;
+exports.isAliasedImport = isAliasedImport;
 /**
  * Determines if the given object is a CallableDeclaration.
  *
@@ -10,7 +13,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 function isCallableDeclaration(obj) {
     return obj && obj.parameters && obj.variables;
 }
-exports.isCallableDeclaration = isCallableDeclaration;
 /**
  * Determines if the given object is an ExportableDeclaration.
  *
@@ -21,7 +23,6 @@ exports.isCallableDeclaration = isCallableDeclaration;
 function isExportableDeclaration(obj) {
     return obj && Object.keys(obj).indexOf('isExported') >= 0;
 }
-exports.isExportableDeclaration = isExportableDeclaration;
 /**
  * Determines if the given object is an AliasedImport.
  *
@@ -32,4 +33,3 @@ exports.isExportableDeclaration = isExportableDeclaration;
 function isAliasedImport(obj) {
     return obj && Object.keys(obj).indexOf('alias') >= 0;
 }
-exports.isAliasedImport = isAliasedImport;

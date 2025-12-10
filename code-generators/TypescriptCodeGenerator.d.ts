@@ -7,11 +7,11 @@ import { TypescriptGenerationOptions } from './TypescriptGenerationOptions';
  * All generatable items combined. If the element is not generatable, the specific generator should throw
  * an exception.
  */
-export declare type Generatable = Declaration | Import | Export | SymbolSpecifier;
+export type Generatable = Declaration | Import | Export | SymbolSpecifier;
 /**
  * Type for generators.
  */
-export declare type Generators = {
+export type Generators = {
     [name: string]: (generatable: Generatable, options: TypescriptGenerationOptions) => string;
 };
 /**

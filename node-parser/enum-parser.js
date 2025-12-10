@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.parseEnum = parseEnum;
 const EnumDeclaration_1 = require("../declarations/EnumDeclaration");
 const parse_utilities_1 = require("./parse-utilities");
 /**
@@ -10,8 +11,7 @@ const parse_utilities_1 = require("./parse-utilities");
  * @param {EnumDeclaration} node
  */
 function parseEnum(resource, node) {
-    const declaration = new EnumDeclaration_1.EnumDeclaration(node.name.text, parse_utilities_1.isNodeExported(node), node.getStart(), node.getEnd());
+    const declaration = new EnumDeclaration_1.EnumDeclaration(node.name.text, (0, parse_utilities_1.isNodeExported)(node), node.getStart(), node.getEnd());
     declaration.members = node.members.map(o => o.name.getText());
     resource.enums.push(declaration);
 }
-exports.parseEnum = parseEnum;

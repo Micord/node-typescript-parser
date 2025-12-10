@@ -1,5 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.isNodeExported = isNodeExported;
+exports.isNodeDefaultExported = isNodeDefaultExported;
+exports.getNodeType = getNodeType;
+exports.containsModifier = containsModifier;
+exports.getNodeVisibility = getNodeVisibility;
+exports.getDefaultResourceIdentifier = getDefaultResourceIdentifier;
 const typescript_1 = require("typescript");
 const File_1 = require("../resources/File");
 /**
@@ -11,10 +17,9 @@ const File_1 = require("../resources/File");
  * @returns {boolean}
  */
 function isNodeExported(node) {
-    const flags = typescript_1.getCombinedModifierFlags(node);
+    const flags = (0, typescript_1.getCombinedModifierFlags)(node);
     return (flags & typescript_1.ModifierFlags.Export) === typescript_1.ModifierFlags.Export;
 }
-exports.isNodeExported = isNodeExported;
 /**
  * Checks if the given typescript node has the default flag.
  * (e.g. export default class Foobar).
@@ -24,10 +29,9 @@ exports.isNodeExported = isNodeExported;
  * @returns {boolean}
  */
 function isNodeDefaultExported(node) {
-    const flags = typescript_1.getCombinedModifierFlags(node);
+    const flags = (0, typescript_1.getCombinedModifierFlags)(node);
     return (flags & typescript_1.ModifierFlags.Default) === typescript_1.ModifierFlags.Default;
 }
-exports.isNodeDefaultExported = isNodeDefaultExported;
 /**
  * Returns the type text (type information) for a given node.
  *
@@ -38,7 +42,6 @@ exports.isNodeDefaultExported = isNodeDefaultExported;
 function getNodeType(node) {
     return node ? node.getText() : undefined;
 }
-exports.getNodeType = getNodeType;
 /**
  * Checks if a node contains a certain modifier (of a given kind)
  *
@@ -50,9 +53,8 @@ exports.getNodeType = getNodeType;
 function containsModifier(node, modifierKind) {
     if (!node.modifiers)
         return false;
-    return node.modifiers.some(mod => mod.kind === modifierKind);
+    return node.modifiers.some((mod) => mod.kind === modifierKind);
 }
-exports.containsModifier = containsModifier;
 /**
  * Returns the enum value (visibility) of a node.
  *
@@ -67,17 +69,16 @@ function getNodeVisibility(node) {
     for (const modifier of node.modifiers) {
         switch (modifier.kind) {
             case typescript_1.SyntaxKind.PublicKeyword:
-                return 2 /* Public */;
+                return 2 /* DeclarationVisibility.Public */;
             case typescript_1.SyntaxKind.ProtectedKeyword:
-                return 1 /* Protected */;
+                return 1 /* DeclarationVisibility.Protected */;
             case typescript_1.SyntaxKind.PrivateKeyword:
-                return 0 /* Private */;
+                return 0 /* DeclarationVisibility.Private */;
             default:
                 break;
         }
     }
 }
-exports.getNodeVisibility = getNodeVisibility;
 /**
  * Function that calculates the default name of a resource.
  * This is used when a default export has no name (i.e. export class {}).
@@ -92,4 +93,3 @@ function getDefaultResourceIdentifier(resource) {
     }
     return resource.identifier;
 }
-exports.getDefaultResourceIdentifier = getDefaultResourceIdentifier;

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.parseVariable = parseVariable;
 const typescript_1 = require("typescript");
 const VariableDeclaration_1 = require("../declarations/VariableDeclaration");
 const TypescriptHeroGuards_1 = require("../type-guards/TypescriptHeroGuards");
@@ -15,8 +16,8 @@ function parseVariable(parent, node) {
     const isConst = node.declarationList.getChildren().some(o => o.kind === typescript_1.SyntaxKind.ConstKeyword);
     if (node.declarationList && node.declarationList.declarations) {
         node.declarationList.declarations.forEach((o) => {
-            const declaration = new VariableDeclaration_1.VariableDeclaration(o.name.getText(), isConst, parse_utilities_1.isNodeExported(node), parse_utilities_1.getNodeType(o.type), node.getStart(), node.getEnd());
-            if (TypescriptHeroGuards_1.isCallableDeclaration(parent)) {
+            const declaration = new VariableDeclaration_1.VariableDeclaration(o.name.getText(), isConst, (0, parse_utilities_1.isNodeExported)(node), (0, parse_utilities_1.getNodeType)(o.type), node.getStart(), node.getEnd());
+            if ((0, TypescriptHeroGuards_1.isCallableDeclaration)(parent)) {
                 parent.variables.push(declaration);
             }
             else {
@@ -25,4 +26,3 @@ function parseVariable(parent, node) {
         });
     }
 }
-exports.parseVariable = parseVariable;

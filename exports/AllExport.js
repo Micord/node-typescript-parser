@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.AllExport = void 0;
 /**
  * Declares an all export (i.e. export * from ...).
  *

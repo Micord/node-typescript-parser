@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.traverseAst = traverseAst;
 function traverseAst(root, visit, skipContents) {
     const stack = root.getChildren();
     for (let node = stack.shift(); node !== undefined; node = stack.shift()) {
@@ -10,4 +11,3 @@ function traverseAst(root, visit, skipContents) {
         stack.unshift(...node.getChildren());
     }
 }
-exports.traverseAst = traverseAst;

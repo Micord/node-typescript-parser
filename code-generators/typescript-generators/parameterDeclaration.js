@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.generateParameterDeclaration = generateParameterDeclaration;
 /**
  * Generates typescript code for parameters.
  *
@@ -10,4 +11,3 @@ Object.defineProperty(exports, "__esModule", { value: true });
 function generateParameterDeclaration(parameter) {
     return `${parameter.name}${parameter.type ? `: ${parameter.type}` : ''}`;
 }
-exports.generateParameterDeclaration = generateParameterDeclaration;

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DeclarationIndex = void 0;
 const tslib_1 = require("tslib");
 const lodash_1 = require("lodash");
 const path_1 = require("path");
@@ -23,7 +24,7 @@ const PathHelpers_1 = require("./utilities/PathHelpers");
 function getNodeLibraryName(path) {
     const dirs = path.split(/\/|\\/);
     const nodeIndex = dirs.indexOf('node_modules');
-    return PathHelpers_1.normalizeFilename(dirs.slice(nodeIndex + 1).join('/'))
+    return (0, PathHelpers_1.normalizeFilename)(dirs.slice(nodeIndex + 1).join('/'))
         .replace(new RegExp(`/(index|${dirs[nodeIndex + 1]}|${dirs[dirs.length - 2]})$`), '');
 }
 /**
@@ -34,20 +35,6 @@ function getNodeLibraryName(path) {
  * @class DeclarationIndex
  */
 class DeclarationIndex {
-    constructor(parser, rootPath) {
-        this.parser = parser;
-        this.rootPath = rootPath;
-        this.building = false;
-        /**
-         * Hash of parsed resources. Contains all parsed files / namespaces / declarations
-         * of the current workspace.
-         *
-         * @private
-         * @type {Resources}
-         * @memberof DeclarationIndex
-         */
-        this.parsedResources = Object.create(null);
-    }
     /**
      * Indicator if the first index was loaded and calculated or not.
      *
@@ -82,6 +69,20 @@ class DeclarationIndex {
             .sort()
             .reduce((all, key) => all.concat(this.index[key]), []);
     }
+    constructor(parser, rootPath) {
+        this.parser = parser;
+        this.rootPath = rootPath;
+        this.building = false;
+        /**
+         * Hash of parsed resources. Contains all parsed files / namespaces / declarations
+         * of the current workspace.
+         *
+         * @private
+         * @type {Resources}
+         * @memberof DeclarationIndex
+         */
+        this.parsedResources = Object.create(null);
+    }
     /**
      * Calculates the differences between two indices. Calculates removed, added and updated declarations.
      * The updated declarations are calculated and all declarations that the new index contains are inserted in the list.
@@ -96,19 +97,19 @@ class DeclarationIndex {
         const oldKeys = Object.keys(oldIndex);
         const newKeys = Object.keys(newIndex);
         return {
-            added: lodash_1.difference(newKeys, oldKeys).reduce((obj, currentKey) => {
+            added: (0, lodash_1.difference)(newKeys, oldKeys).reduce((obj, currentKey) => {
                 obj[currentKey] = newIndex[currentKey];
                 return obj;
             }, {}),
-            updated: lodash_1.intersection(oldKeys, newKeys).reduce((obj, currentKey) => {
+            updated: (0, lodash_1.intersection)(oldKeys, newKeys).reduce((obj, currentKey) => {
                 const old = oldIndex[currentKey];
                 const neu = newIndex[currentKey];
-                if (lodash_1.differenceWith(neu, old, lodash_1.isEqual).length > 0 || lodash_1.differenceWith(old, neu, lodash_1.isEqual).length > 0) {
+                if ((0, lodash_1.differenceWith)(neu, old, lodash_1.isEqual).length > 0 || (0, lodash_1.differenceWith)(old, neu, lodash_1.isEqual).length > 0) {
                     obj[currentKey] = neu;
                 }
                 return obj;
             }, {}),
-            deleted: lodash_1.difference(oldKeys, newKeys),
+            deleted: (0, lodash_1.difference)(oldKeys, newKeys),
         };
     }
     /**
@@ -164,8 +165,8 @@ class DeclarationIndex {
             const removeResources = [];
             const rebuildFiles = [];
             for (const change of changes.deleted) {
-                const filePath = PathHelpers_1.normalizePathUri(change);
-                const resource = '/' + PathHelpers_1.normalizeFilename(path_1.relative(this.rootPath, filePath));
+                const filePath = (0, PathHelpers_1.normalizePathUri)(change);
+                const resource = '/' + (0, PathHelpers_1.normalizeFilename)((0, path_1.relative)(this.rootPath, filePath));
                 if (removeResources.indexOf(resource) < 0) {
                     removeResources.push(resource);
                 }
@@ -176,8 +177,8 @@ class DeclarationIndex {
                 }
             }
             for (const change of (changes.created || []).concat(changes.updated)) {
-                const filePath = PathHelpers_1.normalizePathUri(change);
-                const resource = '/' + PathHelpers_1.normalizeFilename(path_1.relative(this.rootPath, filePath));
+                const filePath = (0, PathHelpers_1.normalizePathUri)(change);
+                const resource = '/' + (0, PathHelpers_1.normalizeFilename)((0, path_1.relative)(this.rootPath, filePath));
                 if (rebuildResources.indexOf(resource) < 0) {
                     rebuildResources.push(resource);
                 }
@@ -241,7 +242,7 @@ class DeclarationIndex {
                 break;
             }
             if (ex instanceof AllExport_1.AllExport || ex instanceof NamedExport_1.NamedExport) {
-                const exported = '/' + PathHelpers_1.toPosix(path_1.relative(this.rootPath, path_1.normalize(path_1.join(resource.parsedPath.dir, ex.from))));
+                const exported = '/' + (0, PathHelpers_1.toPosix)((0, path_1.relative)(this.rootPath, (0, path_1.normalize)((0, path_1.join)(resource.parsedPath.dir, ex.from))));
                 exportsResource = exported === resourcePath;
             }
         }
@@ -257,8 +258,8 @@ class DeclarationIndex {
      *
      * @memberof DeclarationIndex
      */
-    parseResources(files = []) {
-        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+    parseResources() {
+        return tslib_1.__awaiter(this, arguments, void 0, function* (files = []) {
             const parsedResources = Object.create(null);
             for (const file of files) {
                 if (file.filePath.indexOf('typings') > -1 || file.filePath.indexOf('node_modules/@types') > -1) {
@@ -276,7 +277,7 @@ class DeclarationIndex {
             }
             for (const key of Object.keys(parsedResources).sort((k1, k2) => k2.length - k1.length)) {
                 const resource = parsedResources[key];
-                resource.declarations = resource.declarations.filter(o => TypescriptHeroGuards_1.isExportableDeclaration(o) && o.isExported);
+                resource.declarations = resource.declarations.filter(o => (0, TypescriptHeroGuards_1.isExportableDeclaration)(o) && o.isExported);
                 this.processResourceExports(parsedResources, resource);
             }
             return parsedResources;
@@ -340,12 +341,12 @@ class DeclarationIndex {
                 if (!ex.from) {
                     return;
                 }
-                let sourceLib = path_1.resolve(resource.parsedPath.dir, ex.from);
+                let sourceLib = (0, path_1.resolve)(resource.parsedPath.dir, ex.from);
                 if (sourceLib.indexOf('node_modules') > -1) {
                     sourceLib = getNodeLibraryName(sourceLib);
                 }
                 else {
-                    sourceLib = '/' + PathHelpers_1.normalizeFilename(path_1.relative(this.rootPath, sourceLib));
+                    sourceLib = '/' + (0, PathHelpers_1.normalizeFilename)((0, path_1.relative)(this.rootPath, sourceLib));
                 }
                 if (!parsedResources[sourceLib]) {
                     return;
@@ -361,7 +362,7 @@ class DeclarationIndex {
             }
             else {
                 if (ex instanceof AssignedExport_1.AssignedExport) {
-                    for (const lib of ex.exported.filter(o => !TypescriptHeroGuards_1.isExportableDeclaration(o))) {
+                    for (const lib of ex.exported.filter(o => !(0, TypescriptHeroGuards_1.isExportableDeclaration)(o))) {
                         this.processResourceExports(parsedResources, lib, processedResources);
                     }
                     this.processAssignedExport(ex, resource);
@@ -427,11 +428,11 @@ class DeclarationIndex {
      */
     processAssignedExport(tsExport, exportingLib) {
         tsExport.exported.forEach((exported) => {
-            if (TypescriptHeroGuards_1.isExportableDeclaration(exported)) {
+            if ((0, TypescriptHeroGuards_1.isExportableDeclaration)(exported)) {
                 exportingLib.declarations.push(exported);
             }
             else {
-                exportingLib.declarations.push(...exported.declarations.filter(o => TypescriptHeroGuards_1.isExportableDeclaration(o) && o.isExported));
+                exportingLib.declarations.push(...exported.declarations.filter(o => (0, TypescriptHeroGuards_1.isExportableDeclaration)(o) && o.isExported));
                 exported.declarations = [];
             }
         });

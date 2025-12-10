@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TypeAliasDeclaration = void 0;
 /**
  * Alias declaration that can be exported. Is used to defined types.
  * (e.g. type Foobar = { name: string };)
