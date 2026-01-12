@@ -9,11 +9,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @implements {TypedDeclaration}
  */
 class ParameterDeclaration {
-    constructor(name, type, start, end) {
+    constructor(name, type, start, end, decorators) {
         this.name = name;
         this.type = type;
         this.start = start;
         this.end = end;
+        this.decorators = decorators;
+        if (decorators && decorators.length === 0) {
+            this.decorators = undefined;
+        }
     }
 }
 exports.ParameterDeclaration = ParameterDeclaration;

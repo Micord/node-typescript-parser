@@ -70,7 +70,7 @@ function parseCtorParams(parent, ctor, node) {
     }
     node.parameters.forEach((o) => {
         if (TypescriptGuards_1.isIdentifier(o.name)) {
-            ctor.parameters.push(new ParameterDeclaration_1.ParameterDeclaration(o.name.text, parse_utilities_1.getNodeType(o.type), o.getStart(), o.getEnd()));
+            ctor.parameters.push(new ParameterDeclaration_1.ParameterDeclaration(o.name.text, parse_utilities_1.getNodeType(o.type), o.getStart(), o.getEnd(), parseDecorators(o)));
             if (!o.modifiers) {
                 return;
             }
@@ -82,7 +82,7 @@ function parseCtorParams(parent, ctor, node) {
             // TODO: BindingElement
             ctor.parameters = ctor.parameters.concat(elements.map((bind) => {
                 if (TypescriptGuards_1.isIdentifier(bind.name)) {
-                    return new ParameterDeclaration_1.ParameterDeclaration(bind.name.text, undefined, bind.getStart(), bind.getEnd());
+                    return new ParameterDeclaration_1.ParameterDeclaration(bind.name.text, undefined, bind.getStart(), bind.getEnd(), parseDecorators(bind));
                 }
             }).filter(Boolean));
         }

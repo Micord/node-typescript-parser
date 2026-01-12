@@ -1,4 +1,5 @@
 import { TypedDeclaration } from './Declaration';
+import { DecoratorDeclaration as TshDecorator } from './DecoratorDeclaration';
 /**
  * Parameter declaration. Is contained in a method or function delaration since a parameter can not be exported
  * by itself.
@@ -12,7 +13,8 @@ export declare class ParameterDeclaration implements TypedDeclaration {
     type: string | undefined;
     start?: number | undefined;
     end?: number | undefined;
-    constructor(name: string, type: string | undefined, start?: number | undefined, end?: number | undefined);
+    decorators?: TshDecorator[] | undefined;
+    constructor(name: string, type: string | undefined, start?: number | undefined, end?: number | undefined, decorators?: TshDecorator[] | undefined);
 }
 export declare class BoundParameterDeclaration extends ParameterDeclaration {
     private startCharacter;

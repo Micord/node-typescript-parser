@@ -5,6 +5,7 @@ const DefaultDeclaration_1 = require("../declarations/DefaultDeclaration");
 const FunctionDeclaration_1 = require("../declarations/FunctionDeclaration");
 const ParameterDeclaration_1 = require("../declarations/ParameterDeclaration");
 const TypescriptGuards_1 = require("../type-guards/TypescriptGuards");
+const class_parser_1 = require("./class-parser");
 const identifier_parser_1 = require("./identifier-parser");
 const parse_utilities_1 = require("./parse-utilities");
 const variable_parser_1 = require("./variable-parser");
@@ -44,7 +45,7 @@ function parseMethodParams(node) {
     return node.parameters.reduce((all, cur) => {
         const params = all;
         if (TypescriptGuards_1.isIdentifier(cur.name)) {
-            params.push(new ParameterDeclaration_1.ParameterDeclaration(cur.name.text, parse_utilities_1.getNodeType(cur.type), cur.getStart(), cur.getEnd()));
+            params.push(new ParameterDeclaration_1.ParameterDeclaration(cur.name.text, parse_utilities_1.getNodeType(cur.type), cur.getStart(), cur.getEnd(), class_parser_1.parseDecorators(cur)));
         }
         else if (TypescriptGuards_1.isObjectBindingPattern(cur.name)) {
             const elements = cur.name.elements;
@@ -58,7 +59,7 @@ function parseMethodParams(node) {
                     .filter(member => TypescriptGuards_1.isPropertySignature(member))
                     .map((signature) => parse_utilities_1.getNodeType(signature.type));
             }
-            boundParam.parameters = elements.map((bindingElement, index) => new ParameterDeclaration_1.ParameterDeclaration(bindingElement.name.getText(), types[index], bindingElement.getStart(), bindingElement.getEnd()));
+            boundParam.parameters = elements.map((bindingElement, index) => new ParameterDeclaration_1.ParameterDeclaration(bindingElement.name.getText(), types[index], bindingElement.getStart(), bindingElement.getEnd(), class_parser_1.parseDecorators(bindingElement)));
             params.push(boundParam);
         }
         else if (TypescriptGuards_1.isArrayBindingPattern(cur.name)) {
@@ -71,7 +72,7 @@ function parseMethodParams(node) {
             else if (cur.type && typescript_1.isTupleTypeNode(cur.type)) {
                 types = cur.type.elementTypes.map(type => parse_utilities_1.getNodeType(type));
             }
-            boundParam.parameters = elements.map((bindingElement, index) => new ParameterDeclaration_1.ParameterDeclaration(bindingElement.getText(), types[index], bindingElement.getStart(), bindingElement.getEnd()));
+            boundParam.parameters = elements.map((bindingElement, index) => new ParameterDeclaration_1.ParameterDeclaration(bindingElement.getText(), types[index], bindingElement.getStart(), bindingElement.getEnd(), class_parser_1.parseDecorators(bindingElement)));
             params.push(boundParam);
         }
         return params;
